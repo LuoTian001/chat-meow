@@ -1,17 +1,7 @@
-'''
-Author: MeowKJ
-Date: 2023-01-25 18:32:01
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-07 17:02:25
-FilePath: /chat-meow/meow/ai/openai.py
-'''
 import openai
 from meow.utils.context import get_db_manager
 from meow.utils.retry import network_retry
 import logging
-
-# def prompt_filter(prompt):
-#     return prompt != '' and prompt != 'Bot:' and prompt != 'Me:'
 
 class OpenaiHandler(object):
     def __init__(self, api_key, max_prompt_length, default_prompt_me, default_prompt_bot, openai_api_params={}):
@@ -26,7 +16,7 @@ class OpenaiHandler(object):
 
     @network_retry
     def chat(self, new_prompt: str) -> str:
-        # ? 检查prompt格式
+        # 检查prompt格式
         if new_prompt == '' or new_prompt == ' ':
             logging.warning('OPENAI CHAT GET EMPTY')
             return 2, 'restart'
@@ -34,10 +24,10 @@ class OpenaiHandler(object):
         # if new_prompt[-1] not in ['.', '。', '?', '!', '？', '！']:
         #     new_prompt = new_prompt + '.'
 
-        # ? 给prompt装上发言人
+        # 给prompt装上发言人
         new_prompt = self.restart_sequence + new_prompt
 
-        # ? 载入之前的promot, 如果为空则新建
+        # 载入之前的promot, 如果为空则新建
         try:
             prompt_list = get_db_manager().get_prompt(self.max_prompt_length)
             prompt = '\n'.join(prompt_list)
@@ -48,7 +38,7 @@ class OpenaiHandler(object):
             prompt = new_prompt
             return 2, 'database error'
 
-        # ? 加入初始prompt
+        # 加入初始prompt
         prompt = self.default_prompt + prompt + '\n'
         try:
             response = openai.Completion.create(

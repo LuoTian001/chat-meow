@@ -1,10 +1,3 @@
-'''
-Author: MeowKJ
-Date: 2023-02-07 17:31:57
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-10 21:14:58
-FilePath: /chat-meow/meow/utils/thread.py
-'''
 from threading import Thread
 from meow.utils.context import set_chat_thread
 from meow.utils.context import get_chat_thread
@@ -24,5 +17,4 @@ def rsgister_chat_thread(func):
 
 def stop_chat_thread():
     set_chat_thread_stop_flag(True)
-    
 

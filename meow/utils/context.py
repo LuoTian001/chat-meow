@@ -1,12 +1,4 @@
-'''
-Author: MeowKJ
-Date: 2023-02-01 13:04:11
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-08 15:42:15
-FilePath: /chat-meow/meow/utils/context.py
-'''
 from threading import Lock, Thread
-
 
 context = {
     'db.manager': None,

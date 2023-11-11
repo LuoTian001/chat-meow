@@ -1,10 +1,3 @@
-'''
-Author: MeowKJ
-Date: 2023-01-25 14:25:18
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-10 21:23:48
-FilePath: /chat-meow/meow/audio/record.py
-'''
 import audioop
 import pyaudio
 import logging
@@ -13,15 +6,11 @@ from meow.utils.context import get_chat_thread_stop_flag, audio_lock
 from meow.utils.context import ThreadStopException
 import wave
 import time
-# global audio_frames
-
-
 
 class RecordHandler(object):
 
     stream_format = pyaudio.paInt16
     pyaudio_instance = pyaudio.PyAudio()
- #   sample_width = pyaudio_instance.get_sample_size(stream_format)
 
     def __init__(self, audio_min_rms=2000, max_low_audio_flag=10, max_high_audio_flag=3, channel=1, rate=16000, chunk=1024):
         # self.source_file = source_file
@@ -117,16 +106,3 @@ class RecordHandler(object):
         self.play_stream.stop_stream()
         self.play_stream.close()
 
-    # def play_from_wav(self, audio_wav: str) -> None:
-    #     chunk = 1024
-    #     f = wave.open(audio_wav, "rb")
-    #     stream = self.pyaudio_instance.open(format=self.pyaudio_instance.get_format_from_width(f.getsampwidth()),
-    #                                         channels=f.getnchannels(),
-    #                                         rate=f.getframerate(),
-    #                                         output=True)
-    #     data = f.readframes(chunk)
-    #     while data != '':
-    #         stream.write(data)
-    #         data = f.readframes(chunk)
-    #     stream.stop_stream()
-    #     stream.close()

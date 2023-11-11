@@ -1,11 +1,3 @@
-'''
-Author: MeowKJ
-Date: 2023-01-25 15:40:12
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-07 17:57:19
-FilePath: /chat-meow/meow/baidu/baidu.py
-'''
-
 # coding=utf-8
 import json
 import base64

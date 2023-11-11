@@ -1,10 +1,3 @@
-'''
-Author: MeowKJ
-Date: 2023-02-02 14:41:56
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-08 16:20:29
-FilePath: /chat-meow/meow/web/app.py
-'''
 from flask import Flask, render_template
 from flask import request
 

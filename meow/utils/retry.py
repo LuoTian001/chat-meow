@@ -1,10 +1,3 @@
-'''
-Author: MeowKJ
-Date: 2023-02-02 16:05:00
-LastEditors: MeowKJ ijink@qq.com
-LastEditTime: 2023-02-08 15:11:03
-FilePath: /chat-meow/meow/utils/retry.py
-'''
 from functools import wraps
 import time
 import logging
@@ -33,3 +26,4 @@ def logit(func):
         logging.debug(func.__name__ + " was called")
         return func(*args, **kwargs)
     return with_logging
+    
